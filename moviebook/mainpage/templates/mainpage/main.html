@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>연습연습</title>
+</head>
+<body>
+    {% for movie in movies_list %}
+    <p>
+        <img src="{{movie.image}}"/><br>
+        {{movie.rate}}
+    </p>
+    {% endfor %}
+
+</body>
+</html>

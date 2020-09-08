@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>무비북::영화예매</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	body {padding:0; margin:0;}
+	* {
+		box-sizing:border-box;
+	}
+	nav {
+		position:fixed;
+		float:left;
+		width:15%;
+		height:100%;
+		padding:0 0 10% 0;
+		background-color:#ccc;
+	}
+	nav div {
+		width:100%;
+		text-align:center;
+		margin-bottom:100px;
+		background-color:#eee;
+		padding:30px;
+	}
+	nav ul {
+		margin-top:100px;
+		list-style-type:none;
+	}
+	nav li {
+		padding:20px 0 20px 0;
+	}
+	article {
+		margin-left:16%;
+		float:left;
+		width:84%;
+		height:auto;
+		padding:20px;
+		background-color:#eee
+	}
+	footer {
+		margin-left:16%;
+		float:left;
+		width:84%;
+		font-size:5pt;
+		text-align:center;
+		padding:10px;
+		background-color:#999;
+	}
+
+	@media(max-width:600px) {
+		nav, article {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	/*****************************/
+	.subject {
+		font-size:13pt;
+		font-weight: bold;
+	}
+	article {
+		font-size:100%;
+	}
+	table {
+		align-content: center;
+	}
+	table td{
+		padding:15px;
+	}
+	/*****************************/
+</style>
+<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+		console.log("제이쿼리")
+		/*
+		$("#screening").click(function() {
+			$.ajax({
+			type : "GET",
+			url :"/comming/",
+			data : {"f" : "comming"},
+			success : whenSuccess,
+			error : whenError
+		});
+		});
+		*/
+	});
+	/*
+	function whenSuccess() {
+		console.log("성공");
+	}
+
+	function whenError() {
+		console.log("에러")
+	}*/
+</script>
+</head>
+<body>
+	<form method="POST">
+		<section>
+			<nav>
+				<div>
+					<h2><a href="#">무비북</a></h2>
+				</div>
+				<ul>
+					<li><a href="#">무비북 홈</a></li>
+					<li><a href="#">상영작· 예정작</a></li>
+					<li><a href="#">예매하기</a></li>
+					<li><a href="#">예매내역</a></li>
+				</ul>
+			</nav>
+
+			<article>
+				<br>
+				<div class="subject">
+					<a href="#" id="screening" name="screening">
+						현재 상영작
+					</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#" id="comming" name="comming">
+						개봉 예정작
+					</a>
+				</div>
+				<br><br>
+				<table>
+					<tbody>
+						<tr>
+							{% for movie in movies_list1 %}
+							<td>
+								<img src="{{movie.image}}"/><br>
+								<p align="center">평점 : {{movie.grade}}<br></p>
+							</td>
+							{% endfor %}
+						</tr>
+						<tr>
+							{% for movie in movies_list2 %}
+							<td>
+								<img src="{{movie.image}}"/><br>
+								<p align="center">평점 : {{movie.grade}}<br></p>
+							</td>
+							{% endfor %}
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<div class="subject">
+					영화 평점· 리뷰
+				</div>
+			</article>
+		</section>
+	</form>
+	<footer>
+		상호 : 무비북<br>
+		대표 : 배나영<br>
+		주소 : 서울특별시 용산구 동자동 43-205, 1층<br>
+		개인정보 관리 책임자 : 배나영 (ny9797@moviebook.com)<br>
+		사업자 등록번호 : 154-83-51743<br>
+	</footer>
+</body>
+</html>
